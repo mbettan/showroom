@@ -1,60 +1,25 @@
 {
-  "generated_at": "2026-06-19T02:51:12.463322Z",
+  "generated_at": "2026-06-19T02:54:42.154434Z",
   "username": "mbettan",
   "count": 15,
   "projects": [
     {
-      "id": 1051821440,
-      "name": "wealth-dashboard",
-      "title": "Wealth Dashboard",
-      "description": "A sophisticated financial tracking dashboard built with Google Sheets and Apps Script to visualize net worth, asset allocation, and progress toward financial independence (FIRE).",
-      "github_url": "https://github.com/mbettan/wealth-dashboard",
-      "homepage_url": "https://mbettan.github.io/wealth-dashboard/",
+      "id": 1179996624,
+      "name": "PersonaAdGen",
+      "title": "PersonaAdGen",
+      "description": "AI-powered advertising content generator that transforms user photos into compelling, persona-driven advertising scenes. The agent guides users through a story-driven brief collection process, automatically generates headlines, and creates multiple advertising scenes tailored to specific target audiences.",
+      "github_url": "https://github.com/mbettan/PersonaAdGen",
+      "homepage_url": "https://mbettan.github.io/PersonaAdGen/",
       "topics": [
-        "apps-script",
-        "asset-allocation",
-        "dashboard",
-        "financial-independence",
-        "fire-movement",
-        "google-sheets",
-        "net-worth",
-        "personal-finance",
-        "wealth-management"
+        "imagegen4",
+        "nanobananapro",
+        "veo3"
       ],
-      "language": "Other",
-      "stars": 0,
-      "created_at": "2025-09-06T19:40:02Z",
-      "updated_at": "2026-06-19T02:47:51Z",
-      "thumbnail": "images/wealth-dashboard.png"
-    },
-    {
-      "id": 1187528703,
-      "name": "machine-learning-cert",
-      "title": "Machine Learning Cert",
-      "description": "🎓 Elite multi-modal study hub for GCP Professional ML Engineer & Generative AI Leader certifications. Rich guides, slides, and AI-generated podcasts (NotebookLM) covering advanced ML & GenAI.",
-      "github_url": "https://github.com/mbettan/machine-learning-cert",
-      "homepage_url": "https://mbettan.github.io/machine-learning-cert/",
-      "topics": [
-        "anthropic-models",
-        "certification",
-        "certification-prep",
-        "gcp",
-        "generative-ai",
-        "generative-ai-leader",
-        "google-cloud",
-        "interactive-learning",
-        "machine-learning",
-        "mlops",
-        "notebooklm",
-        "podcasts",
-        "professional-ml-engineer",
-        "study-guide"
-      ],
-      "language": "Other",
-      "stars": 0,
-      "created_at": "2026-03-20T20:42:40Z",
-      "updated_at": "2026-06-19T02:21:36Z",
-      "thumbnail": "images/machine-learning-cert.png"
+      "language": "Python",
+      "stars": 2,
+      "created_at": "2026-03-12T15:39:24Z",
+      "updated_at": "2026-05-04T12:03:40Z",
+      "thumbnail": "images/PersonaAdGen.png"
     },
     {
       "id": 1272935192,
@@ -84,20 +49,6 @@
       "thumbnail": "images/PocketRAG.png"
     },
     {
-      "id": 1268532324,
-      "name": "RouteMind",
-      "title": "RouteMind",
-      "description": "A robust routing architecture built on the Google Agent Development Kit (ADK 2.0) and deployed to Vertex AI Reasoning Engine (Agent Engine). It uses a lightweight Gemini 3.1 Flash-Lite classifier to dynamically route user queries to the optimal Claude specialist tier (Haiku 4.5, Sonnet 4.6, Opus 4.8, or Fable 5).",
-      "github_url": "https://github.com/mbettan/RouteMind",
-      "homepage_url": "https://mbettan.github.io/RouteMind/",
-      "topics": [],
-      "language": "Python",
-      "stars": 0,
-      "created_at": "2026-06-13T16:38:35Z",
-      "updated_at": "2026-06-15T20:18:29Z",
-      "thumbnail": "images/RouteMind.png"
-    },
-    {
       "id": 1270429693,
       "name": "ChatScribe",
       "title": "ChatScribe",
@@ -112,28 +63,18 @@
       "thumbnail": "images/ChatScribe.png"
     },
     {
-      "id": 1199915679,
-      "name": "bq-finops-optimizer",
-      "title": "BQ FinOps Optimizer",
-      "description": "⚡ The ultimate BigQuery FinOps suite. Optimize storage billing, right-size Editions capacity via statistical simulations, accurately attribute reservation costs, and eliminate SQL anti-patterns.",
-      "github_url": "https://github.com/mbettan/bq-finops-optimizer",
-      "homepage_url": "https://mbettan.github.io/bq-finops-optimizer/",
-      "topics": [
-        "bigquery",
-        "capacity-planning",
-        "cost-optimization",
-        "data-engineering",
-        "finops",
-        "gcp",
-        "interactive-dashboard",
-        "optimization",
-        "simulations"
-      ],
+      "id": 1268532324,
+      "name": "RouteMind",
+      "title": "RouteMind",
+      "description": "A robust routing architecture built on the Google Agent Development Kit (ADK 2.0) and deployed to Vertex AI Reasoning Engine (Agent Engine). It uses a lightweight Gemini 3.1 Flash-Lite classifier to dynamically route user queries to the optimal Claude specialist tier (Haiku 4.5, Sonnet 4.6, Opus 4.8, or Fable 5).",
+      "github_url": "https://github.com/mbettan/RouteMind",
+      "homepage_url": "https://mbettan.github.io/RouteMind/",
+      "topics": [],
       "language": "Python",
       "stars": 0,
-      "created_at": "2026-04-02T21:00:20Z",
-      "updated_at": "2026-06-06T12:28:32Z",
-      "thumbnail": "images/bq-finops-optimizer.png"
+      "created_at": "2026-06-13T16:38:35Z",
+      "updated_at": "2026-06-15T20:18:29Z",
+      "thumbnail": "images/RouteMind.png"
     },
     {
       "id": 1257633161,
@@ -239,22 +180,71 @@
       "thumbnail": "images/omnidoc.png"
     },
     {
-      "id": 1179996624,
-      "name": "PersonaAdGen",
-      "title": "PersonaAdGen",
-      "description": "AI-powered advertising content generator that transforms user photos into compelling, persona-driven advertising scenes. The agent guides users through a story-driven brief collection process, automatically generates headlines, and creates multiple advertising scenes tailored to specific target audiences.",
-      "github_url": "https://github.com/mbettan/PersonaAdGen",
-      "homepage_url": "https://mbettan.github.io/PersonaAdGen/",
+      "id": 1199915679,
+      "name": "bq-finops-optimizer",
+      "title": "BQ FinOps Optimizer",
+      "description": "⚡ The ultimate BigQuery FinOps suite. Optimize storage billing, right-size Editions capacity via statistical simulations, accurately attribute reservation costs, and eliminate SQL anti-patterns.",
+      "github_url": "https://github.com/mbettan/bq-finops-optimizer",
+      "homepage_url": "https://mbettan.github.io/bq-finops-optimizer/",
       "topics": [
-        "imagegen4",
-        "nanobananapro",
-        "veo3"
+        "bigquery",
+        "capacity-planning",
+        "cost-optimization",
+        "data-engineering",
+        "finops",
+        "gcp",
+        "interactive-dashboard",
+        "optimization",
+        "simulations"
       ],
       "language": "Python",
-      "stars": 2,
-      "created_at": "2026-03-12T15:39:24Z",
-      "updated_at": "2026-05-04T12:03:40Z",
-      "thumbnail": "images/PersonaAdGen.png"
+      "stars": 0,
+      "created_at": "2026-04-02T21:00:20Z",
+      "updated_at": "2026-06-06T12:28:32Z",
+      "thumbnail": "images/bq-finops-optimizer.png"
+    },
+    {
+      "id": 1189702615,
+      "name": "SpatialSense",
+      "title": "SpatialSense",
+      "description": "SpatialSense is an autonomous geospatial reasoning engine orchestrating Gemini 3.1 Pro and BigQuery GIS for high-fidelity urban analytics. It translates unstructured natural language intent into optimized Spatial SQL, executing across massive datasets in milliseconds. Results are perceived through an immersive, photorealistic 3D environment powered",
+      "github_url": "https://github.com/mbettan/SpatialSense",
+      "homepage_url": "https://mbettan.github.io/SpatialSense/",
+      "topics": [],
+      "language": "TypeScript",
+      "stars": 0,
+      "created_at": "2026-03-23T15:28:42Z",
+      "updated_at": "2026-03-23T20:11:41Z",
+      "thumbnail": "images/SpatialSense.png"
+    },
+    {
+      "id": 1187528703,
+      "name": "machine-learning-cert",
+      "title": "Machine Learning Cert",
+      "description": "🎓 Elite multi-modal study hub for GCP Professional ML Engineer & Generative AI Leader certifications. Rich guides, slides, and AI-generated podcasts (NotebookLM) covering advanced ML & GenAI.",
+      "github_url": "https://github.com/mbettan/machine-learning-cert",
+      "homepage_url": "https://mbettan.github.io/machine-learning-cert/",
+      "topics": [
+        "anthropic-models",
+        "certification",
+        "certification-prep",
+        "gcp",
+        "generative-ai",
+        "generative-ai-leader",
+        "google-cloud",
+        "interactive-learning",
+        "machine-learning",
+        "mlops",
+        "notebooklm",
+        "podcasts",
+        "professional-ml-engineer",
+        "study-guide"
+      ],
+      "language": "Other",
+      "stars": 0,
+      "created_at": "2026-03-20T20:42:40Z",
+      "updated_at": "2026-06-19T02:21:36Z",
+      "thumbnail": "images/machine-learning-cert.png"
     },
     {
       "id": 1184794895,
@@ -271,18 +261,28 @@
       "thumbnail": "images/PixelMind.png"
     },
     {
-      "id": 1189702615,
-      "name": "SpatialSense",
-      "title": "SpatialSense",
-      "description": "SpatialSense is an autonomous geospatial reasoning engine orchestrating Gemini 3.1 Pro and BigQuery GIS for high-fidelity urban analytics. It translates unstructured natural language intent into optimized Spatial SQL, executing across massive datasets in milliseconds. Results are perceived through an immersive, photorealistic 3D environment powered",
-      "github_url": "https://github.com/mbettan/SpatialSense",
-      "homepage_url": "https://mbettan.github.io/SpatialSense/",
-      "topics": [],
-      "language": "TypeScript",
+      "id": 1051821440,
+      "name": "wealth-dashboard",
+      "title": "Wealth Dashboard",
+      "description": "A sophisticated financial tracking dashboard built with Google Sheets and Apps Script to visualize net worth, asset allocation, and progress toward financial independence (FIRE).",
+      "github_url": "https://github.com/mbettan/wealth-dashboard",
+      "homepage_url": "https://mbettan.github.io/wealth-dashboard/",
+      "topics": [
+        "apps-script",
+        "asset-allocation",
+        "dashboard",
+        "financial-independence",
+        "fire-movement",
+        "google-sheets",
+        "net-worth",
+        "personal-finance",
+        "wealth-management"
+      ],
+      "language": "Other",
       "stars": 0,
-      "created_at": "2026-03-23T15:28:42Z",
-      "updated_at": "2026-03-23T20:11:41Z",
-      "thumbnail": "images/SpatialSense.png"
+      "created_at": "2025-09-06T19:40:02Z",
+      "updated_at": "2026-06-19T02:47:51Z",
+      "thumbnail": "images/wealth-dashboard.png"
     }
   ]
 }

@@ -187,8 +187,8 @@ def main():
             
         projects.append(transform(repo, args.username, headers))
 
-    # Newest first
-    projects.sort(key=lambda p: p.get("updated_at") or "", reverse=True)
+    # Sort by stars (descending), then by creation date (descending)
+    projects.sort(key=lambda p: (p.get("stars", 0), p.get("created_at") or ""), reverse=True)
 
     payload = {
         "generated_at": datetime.utcnow().isoformat() + "Z",
