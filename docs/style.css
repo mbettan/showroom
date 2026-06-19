@@ -2291,8 +2291,8 @@ footer a:hover {
         width: 100%; height: auto; position: relative;
         border-right: none; border-bottom: 1px solid var(--card-border);
     }
-    .sidebar-nav { display: flex; gap: 24px; overflow-x: auto; }
-    .nav-group { margin-bottom: 0; min-width: 200px; }
+    .sidebar-nav { display: none; }
+    .sidebar-footer { display: none; }
     .product-list.view-list .product-item {
         flex-direction: column;
         padding: 20px;
