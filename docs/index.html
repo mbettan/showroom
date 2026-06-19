@@ -59,7 +59,9 @@
         <!-- ── SIDEBAR ── -->
         <aside class="sidebar">
             <div class="sidebar-brand">
-                <div class="brand-icon"><i class="fas fa-store"></i></div>
+                <div class="brand-icon">
+                    <img src="avatar.png" alt="Michaël Bettan" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;">
+                </div>
                 <div class="brand-text">
                     <span class="brand-name">Showroom</span>
                     <span class="brand-sub">Michaël Bettan</span>
@@ -74,12 +76,7 @@
                     </div>
                 </div>
 
-                <div class="nav-group">
-                    <div class="nav-group-label">Tags</div>
-                    <div id="tag-list" class="nav-list nav-list-tags">
-                        <!-- injected -->
-                    </div>
-                </div>
+
             </nav>
 
             <div class="sidebar-footer">
@@ -152,7 +149,6 @@
                 projects: [],
                 username: "",
                 activeCategory: "all",
-                activeTag: null,
                 search: "",
                 view: "grid",
             };
@@ -160,7 +156,6 @@
             const els = {
                 list: document.getElementById("project-list"),
                 categoryList: document.getElementById("category-list"),
-                tagList: document.getElementById("tag-list"),
                 search: document.getElementById("search-input"),
                 count: document.getElementById("result-count"),
                 empty: document.getElementById("empty-state"),
@@ -206,7 +201,6 @@
                     document.getElementById("year").textContent = new Date().getFullYear();
 
                     buildCategories();
-                    buildTags();
                     render();
                 } catch (err) {
                     let errorMsg = `Run <code style="font-family:var(--font-mono);color:var(--mint)">python fetch_repos.py --username mbettan</code> to generate <code style="font-family:var(--font-mono);color:var(--mint)">projects.json</code>.`;
@@ -260,32 +254,7 @@
                 });
             }
 
-            function buildTags() {
-                const tags = {};
-                state.projects.forEach(p => (p.topics || []).forEach(t => {
-                    tags[t] = (tags[t] || 0) + 1;
-                }));
-                const sorted = Object.entries(tags).sort((a, b) => b[1] - a[1]);
 
-                if (!sorted.length) {
-                    els.tagList.innerHTML = `<span class="nav-empty">No tags found</span>`;
-                    return;
-                }
-
-                els.tagList.innerHTML = sorted.map(([tag]) =>
-                    `<button class="tag-chip" data-tag="${esc(tag)}">${esc(tag)}</button>`
-                ).join("");
-
-                els.tagList.querySelectorAll(".tag-chip").forEach(chip => {
-                    chip.addEventListener("click", () => {
-                        const t = chip.dataset.tag;
-                        state.activeTag = state.activeTag === t ? null : t;
-                        els.tagList.querySelectorAll(".tag-chip")
-                            .forEach(c => c.classList.toggle("active", c.dataset.tag === state.activeTag));
-                        render();
-                    });
-                });
-            }
 
             // ── Filtering ──
             function getFiltered() {
@@ -293,11 +262,8 @@
                 return state.projects.filter(p => {
                     if (state.activeCategory !== "all" && p.language !== state.activeCategory)
                         return false;
-                    if (state.activeTag && !(p.topics || []).includes(state.activeTag))
-                        return false;
                     if (q) {
-                        const hay = (p.title + " " + p.name + " " + p.description + " " +
-                            (p.topics || []).join(" ")).toLowerCase();
+                        const hay = (p.title + " " + p.name + " " + p.description).toLowerCase();
                         if (!hay.includes(q)) return false;
                     }
                     return true;
@@ -321,8 +287,6 @@
 
             function cardHTML(p) {
                 const accent = langColor(p.language);
-                const topics = (p.topics || []).slice(0, 4).map(t =>
-                    `<span class="tag ${accent}">${esc(t)}</span>`).join("");
 
                 return `
                 <li class="product-item active accent-${accent}" data-lang="${esc(p.language)}">
@@ -334,12 +298,14 @@
                     </div>
                     <div class="card-body">
                         <div class="card-header">
-                            <h3>${esc(p.title)}</h3>
+                            <div class="card-title-group" style="display: flex; align-items: center; gap: 10px;">
+                                <h3>${esc(p.title)}</h3>
+                                <span class="body-badge badge">${esc(p.language)}</span>
+                            </div>
                             ${p.stars ? `<span class="star-count"><i class="fas fa-star"></i> ${p.stars}</span>` : ""}
                         </div>
                         <p class="card-desc">${esc(p.description)}</p>
                         <p class="card-by">By @${esc(state.username)}</p>
-                        ${topics ? `<div class="card-tags">${topics}</div>` : ""}
                         <div class="card-actions">
                             <a href="${esc(p.github_url)}" class="download-link" target="_blank" rel="noopener">
                                 <i class="fab fa-github"></i> View Repo
@@ -371,13 +337,10 @@
 
             els.clear.addEventListener("click", () => {
                 state.search = "";
-                state.activeTag = null;
                 state.activeCategory = "all";
                 els.search.value = "";
                 els.categoryList.querySelectorAll(".nav-item")
                     .forEach(b => b.classList.toggle("active", b.dataset.cat === "all"));
-                els.tagList.querySelectorAll(".tag-chip")
-                    .forEach(c => c.classList.remove("active"));
                 render();
             });
 
