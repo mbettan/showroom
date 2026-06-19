@@ -4,7 +4,7 @@
 
 A curated showroom of projects, auto-synced from GitHub, built using a premium obsidian-black and mint-green design system. 
 
-Built with 💚 by [**Michaël Bettan**](https://www.linkedin.com/in/mbettan/).
+Built with 💚 by [**Michaël Bettan**](https://www.linkedin.com/in/<username>/).
 
 ---
 
@@ -51,13 +51,13 @@ The showroom is powered by a dynamic `projects.json` file. To fetch your latest 
 pip install requests
 
 # 2. Run the generator script from the project root
-python scripts/fetch_repos.py --username mbettan
+python scripts/fetch_repos.py --username <username>
 ```
 
 > 💡 **Rate Limits**: GitHub limits unauthenticated requests to 60 per hour. To avoid rate limits, you can export a Personal Access Token:
 > ```bash
 > export GITHUB_TOKEN="your_github_token_here"
-> python scripts/fetch_repos.py --username mbettan
+> python scripts/fetch_repos.py --username <username>
 > ```
 
 ### 2. Run the Showroom Locally

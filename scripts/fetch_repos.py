@@ -34,7 +34,7 @@ PLACEHOLDER_THUMB = "images/placeholder.png"
 IMAGES_DIR = "docs/images"
 
 # Repos you may want to hide (forks, archived, the portfolio repo itself, etc.)
-SKIP_NAMES = {"showroom", "showcase"}
+SKIP_NAMES = {"showroom", "showcase", "wealth-dashboard"}
 SKIP_FORKS = True
 SKIP_ARCHIVED = False
 
@@ -131,7 +131,7 @@ def resolve_thumbnail(repo_name: str) -> str:
     """Use local images/{repo}.png if present, else placeholder."""
     local_path = os.path.join(IMAGES_DIR, f"{repo_name}.png")
     if os.path.isfile(local_path):
-        return f"{IMAGES_DIR}/{repo_name}.png"
+        return f"images/{repo_name}.png"
     return PLACEHOLDER_THUMB
 
 
@@ -180,9 +180,9 @@ def main():
         if SKIP_ARCHIVED and repo.get("archived"):
             continue
         
-        # Filter: Only projects starting January 2026 or after
+        # Filter: Only projects starting January 10, 2025 or after (includes data-analytics-cert)
         created_at = repo.get("created_at")
-        if created_at and created_at < "2026-01-01T00:00:00Z":
+        if created_at and created_at < "2025-01-10T01:52:43Z":
             continue
             
         projects.append(transform(repo, args.username, headers))

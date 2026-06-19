@@ -1,8 +1,65 @@
 {
-  "generated_at": "2026-06-19T00:41:24.083477Z",
+  "generated_at": "2026-06-19T02:23:48.527277Z",
   "username": "mbettan",
-  "count": 14,
+  "count": 15,
   "projects": [
+    {
+      "id": 1187528703,
+      "name": "machine-learning-cert",
+      "title": "Machine Learning Cert",
+      "description": "🎓 Elite multi-modal study hub for GCP Professional ML Engineer & Generative AI Leader certifications. Rich guides, slides, and AI-generated podcasts (NotebookLM) covering advanced ML & GenAI.",
+      "github_url": "https://github.com/mbettan/machine-learning-cert",
+      "homepage_url": "https://mbettan.github.io/machine-learning-cert/",
+      "topics": [
+        "anthropic-models",
+        "certification",
+        "certification-prep",
+        "gcp",
+        "generative-ai",
+        "generative-ai-leader",
+        "google-cloud",
+        "interactive-learning",
+        "machine-learning",
+        "mlops",
+        "notebooklm",
+        "podcasts",
+        "professional-ml-engineer",
+        "study-guide"
+      ],
+      "language": "Other",
+      "stars": 0,
+      "created_at": "2026-03-20T20:42:40Z",
+      "updated_at": "2026-06-19T02:21:36Z",
+      "thumbnail": "images/machine-learning-cert.png"
+    },
+    {
+      "id": 914636011,
+      "name": "data-analytics-cert",
+      "title": "Data Analytics Cert",
+      "description": "🎓 Elite multi-modal study hub for GCP Professional Data Engineer & Databricks certifications. Interactive guides, high-res infographics, and AI-generated podcasts (NotebookLM).",
+      "github_url": "https://github.com/mbettan/data-analytics-cert",
+      "homepage_url": "https://mbettan.github.io/data-analytics-cert/",
+      "topics": [
+        "certification-prep",
+        "data-analytics",
+        "data-engineering",
+        "databricks",
+        "gcp",
+        "google-cloud",
+        "infographics",
+        "interactive-learning",
+        "notebooklm",
+        "pde",
+        "podcasts",
+        "professional-data-engineer",
+        "study-guide"
+      ],
+      "language": "Other",
+      "stars": 0,
+      "created_at": "2025-01-10T01:52:43Z",
+      "updated_at": "2026-06-19T02:20:35Z",
+      "thumbnail": "images/data-analytics-cert.png"
+    },
     {
       "id": 1272935192,
       "name": "PocketRAG",
@@ -184,24 +241,6 @@
       "created_at": "2026-05-23T03:33:30Z",
       "updated_at": "2026-05-23T18:27:55Z",
       "thumbnail": "images/omnidoc.png"
-    },
-    {
-      "id": 1187528703,
-      "name": "machine-learning-cert",
-      "title": "Machine Learning Cert",
-      "description": "Machine Learning Certifications",
-      "github_url": "https://github.com/mbettan/machine-learning-cert",
-      "homepage_url": "https://mbettan.github.io/machine-learning-cert/",
-      "topics": [
-        "certification",
-        "generative-ai",
-        "machine-learning"
-      ],
-      "language": "Other",
-      "stars": 0,
-      "created_at": "2026-03-20T20:42:40Z",
-      "updated_at": "2026-05-11T19:26:05Z",
-      "thumbnail": "images/machine-learning-cert.png"
     },
     {
       "id": 1179996624,
