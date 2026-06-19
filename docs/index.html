@@ -69,14 +69,23 @@
             </div>
 
             <nav class="sidebar-nav">
-                <div class="nav-group">
+                <div class="nav-group" id="nav-group-views">
+                    <div class="nav-group-label">Views</div>
+                    <div class="nav-list">
+                        <button id="nav-showroom" class="nav-item active">
+                            <span><i class="fas fa-th-large"></i> Showroom</span>
+                        </button>
+                        <button id="nav-analytics" class="nav-item">
+                            <span><i class="fas fa-chart-bar"></i> Analytics</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="nav-group" id="nav-group-categories">
                     <div class="nav-group-label">Categories</div>
                     <div id="category-list" class="nav-list">
                         <!-- injected -->
                     </div>
                 </div>
-
-
             </nav>
 
             <div class="sidebar-footer">
@@ -111,20 +120,105 @@
 
             <!-- ── CONTENT ── -->
             <main class="showcase">
-                <header class="showcase-hero">
-                    <div class="header-eyebrow">Welcome to the Showroom</div>
-                    <h1>Things I've <em>built</em>.</h1>
-                    <p>A curated gallery of my repositories, demos, and experiments — automatically synced from GitHub.</p>
-                </header>
+                <!-- SHOWROOM VIEW -->
+                <div id="view-showroom">
+                    <header class="showcase-hero">
+                        <div class="header-eyebrow">Welcome to the Showroom</div>
+                        <h1>Things I've <em>built</em>.</h1>
+                        <p>A curated gallery of my repositories, demos, and experiments — automatically synced from GitHub.</p>
+                    </header>
 
-                <ul id="project-list" class="product-list view-grid">
-                    <!-- injected -->
-                </ul>
+                    <ul id="project-list" class="product-list view-grid">
+                        <!-- injected -->
+                    </ul>
 
-                <div id="empty-state" class="empty-state" hidden>
-                    <i class="fas fa-ghost"></i>
-                    <p>No projects match your filters.</p>
-                    <button id="clear-filters" class="filter-button">Clear filters</button>
+                    <div id="empty-state" class="empty-state" hidden>
+                        <i class="fas fa-ghost"></i>
+                        <p>No projects match your filters.</p>
+                        <button id="clear-filters" class="filter-button">Clear filters</button>
+                    </div>
+                </div>
+
+                <!-- ANALYTICS VIEW -->
+                <div id="view-analytics" hidden>
+                    <header class="showcase-hero">
+                        <div class="header-eyebrow">Portfolio Insights</div>
+                        <h1>Adoption &amp; <em>Impact</em>.</h1>
+                        <p>Real-time analytics and historical developer adoption trends across my repositories.</p>
+                    </header>
+
+                    <!-- KPI Grid -->
+                    <div class="kpi-grid">
+                        <div class="kpi-card glass">
+                            <div class="kpi-icon color-mint"><i class="fas fa-eye"></i></div>
+                            <div class="kpi-info">
+                                <span class="kpi-label">Lifetime Views</span>
+                                <h2 id="kpi-total-views">0</h2>
+                            </div>
+                        </div>
+                        <div class="kpi-card glass">
+                            <div class="kpi-icon color-blue"><i class="fas fa-download"></i></div>
+                            <div class="kpi-info">
+                                <span class="kpi-label">Lifetime Clones</span>
+                                <h2 id="kpi-total-clones">0</h2>
+                            </div>
+                        </div>
+                        <div class="kpi-card glass">
+                            <div class="kpi-icon color-purple"><i class="fas fa-code-branch"></i></div>
+                            <div class="kpi-info">
+                                <span class="kpi-label">Total Forks</span>
+                                <h2 id="kpi-total-forks">0</h2>
+                            </div>
+                        </div>
+                        <div class="kpi-card glass">
+                            <div class="kpi-icon color-gold"><i class="fas fa-star"></i></div>
+                            <div class="kpi-info">
+                                <span class="kpi-label">Total Stars</span>
+                                <h2 id="kpi-total-stars">0</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Filter / Select bar -->
+                    <div class="analytics-controls glass">
+                        <div class="control-group">
+                            <label for="project-select">Project Focus</label>
+                            <select id="project-select">
+                                <option value="all">All Projects (Aggregate)</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="time-range-select">Time Range</label>
+                            <select id="time-range-select">
+                                <option value="all">All-Time History</option>
+                                <option value="30">Last 30 Days</option>
+                                <option value="14">Last 14 Days</option>
+                                <option value="7">Last 7 Days</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Charts Grid -->
+                    <div class="charts-grid">
+                        <div class="chart-card glass">
+                            <h3>Adoption Trajectory</h3>
+                            <div class="chart-container">
+                                <canvas id="chart-growth"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-card glass">
+                            <h3>Daily Activity Peaks</h3>
+                            <div class="chart-container">
+                                <canvas id="chart-daily"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-card glass full-width">
+                            <h3>Adoption Share by Project</h3>
+                            <div class="chart-container">
+                                <canvas id="chart-share"></canvas>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </main>
 
@@ -140,6 +234,9 @@
         </div>
     </div>
 
+    <!-- Chart.js for data visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <!-- ── JS ── -->
     <script>
         (function () {
@@ -151,6 +248,9 @@
                 activeCategory: "all",
                 search: "",
                 view: "grid",
+                activeView: "showroom",
+                history: {},
+                charts: { growth: null, daily: null, share: null }
             };
 
             const els = {
@@ -165,6 +265,21 @@
                 ghProfile: document.getElementById("github-profile-link"),
                 footerGh: document.getElementById("footer-gh"),
                 lastUpdated: document.getElementById("last-updated"),
+                
+                // Analytics Elements
+                viewShowroom: document.getElementById("view-showroom"),
+                viewAnalytics: document.getElementById("view-analytics"),
+                navShowroom: document.getElementById("nav-showroom"),
+                navAnalytics: document.getElementById("nav-analytics"),
+                navGroupCategories: document.getElementById("nav-group-categories"),
+                projectSelect: document.getElementById("project-select"),
+                timeRangeSelect: document.getElementById("time-range-select"),
+                kpiViews: document.getElementById("kpi-total-views"),
+                kpiClones: document.getElementById("kpi-total-clones"),
+                kpiForks: document.getElementById("kpi-total-forks"),
+                kpiStars: document.getElementById("kpi-total-stars"),
+                searchBox: document.querySelector(".search-box"),
+                topbarRight: document.querySelector(".topbar-right"),
             };
 
             // ── Helpers ──
@@ -181,14 +296,34 @@
                 return map[lang] || "purple";
             };
 
-            // ── Fetch ──
+            const formatDate = (dateStr) => {
+                const parts = dateStr.split("-");
+                if (parts.length < 3) return dateStr;
+                const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                const monthIdx = parseInt(parts[1], 10) - 1;
+                const day = parseInt(parts[2], 10);
+                return `${months[monthIdx]} ${day}`;
+            };
+
+            // ── Fetch & Init ──
             async function init() {
                 try {
-                    const res = await fetch("projects.json", { cache: "no-store" });
-                    if (!res.ok) throw new Error("projects.json not found");
-                    const data = await res.json();
+                    const [resProjects, resHistory] = await Promise.all([
+                        fetch("projects.json", { cache: "no-store" }),
+                        fetch("traffic_history.json", { cache: "no-store" }).catch(() => null)
+                    ]);
+
+                    if (!resProjects.ok) throw new Error("projects.json not found");
+                    const data = await resProjects.json();
                     state.projects = data.projects || [];
                     state.username = data.username || "";
+
+                    if (resHistory && resHistory.ok) {
+                        state.history = await resHistory.json();
+                    } else {
+                        state.history = {};
+                        console.warn("⚠️ traffic_history.json not found — running with empty history ledger.");
+                    }
 
                     const ghUrl = `https://github.com/${state.username}`;
                     els.ghProfile.href = ghUrl;
@@ -201,20 +336,22 @@
                     document.getElementById("year").textContent = new Date().getFullYear();
 
                     buildCategories();
+                    buildProjectDropdown();
+                    setupNavigation();
                     render();
                 } catch (err) {
                     let errorMsg = `Run <code style="font-family:var(--font-mono);color:var(--mint)">python fetch_repos.py --username mbettan</code> to generate <code style="font-family:var(--font-mono);color:var(--mint)">projects.json</code>.`;
                     if (window.location.protocol === "file:") {
                         errorMsg = `<strong>Local File Security Policy (CORS):</strong> Modern browsers block loading local data when opening HTML files directly from your computer (file://).<br><br>
                         Please run a local web server in this directory:<br>
-                        <code style="font-family:var(--font-mono);color:var(--mint);display:block;margin:8px 0;padding:8px;background:var(--surface-sunken);border-radius:4px">python3 -m http.server 8080</code>
-                        And open <a href="http://localhost:8080" target="_blank" style="color:var(--mint)">http://localhost:8080</a> in your browser.`;
+                        <code style="font-family:var(--font-mono);color:var(--mint);display:block;margin:8px 0;padding:8px;background:var(--surface-sunken);border-radius:4px">python3 -m http.server 8082</code>
+                        And open <a href="http://localhost:8082" target="_blank" style="color:var(--mint)">http://localhost:8082</a> in your browser.`;
                     }
                     els.list.innerHTML =
                         `<li class="product-item active" style="display:block;max-width:600px;margin:20px auto;padding:30px">
                             <h3>Could not load projects</h3>
                             <p style="color:var(--text-secondary);margin-top:12px;line-height:1.6">
-                              ${errorMsg}
+                                ${errorMsg}
                             </p>
                          </li>`;
                     console.error(err);
@@ -254,7 +391,342 @@
                 });
             }
 
+            function buildProjectDropdown() {
+                let html = '<option value="all">All Projects (Aggregate)</option>';
+                state.projects.forEach(p => {
+                    html += `<option value="${esc(p.name)}">${esc(p.title)}</option>`;
+                });
+                els.projectSelect.innerHTML = html;
+            }
 
+            // ── SPA Tab Navigation ──
+            function setupNavigation() {
+                els.navShowroom.addEventListener("click", () => switchTab("showroom"));
+                els.navAnalytics.addEventListener("click", () => switchTab("analytics"));
+                
+                els.projectSelect.addEventListener("change", () => renderAnalytics());
+                els.timeRangeSelect.addEventListener("change", () => renderAnalytics());
+            }
+
+            function switchTab(tabName) {
+                state.activeView = tabName;
+                
+                els.navShowroom.classList.toggle("active", tabName === "showroom");
+                els.navAnalytics.classList.toggle("active", tabName === "analytics");
+                
+                els.viewShowroom.hidden = tabName !== "showroom";
+                els.viewAnalytics.hidden = tabName !== "analytics";
+                
+                // Toggle sidebar categories and topbar search
+                els.navGroupCategories.hidden = tabName !== "showroom";
+                els.searchBox.style.display = tabName === "showroom" ? "" : "none";
+                els.topbarRight.style.display = tabName === "showroom" ? "" : "none";
+                
+                if (tabName === "analytics") {
+                    renderAnalytics();
+                }
+            }
+
+            // ── Analytics Aggregation & Charting ──
+            function renderAnalytics() {
+                const activeProject = els.projectSelect.value;
+                const timeRange = els.timeRangeSelect.value;
+                
+                // Determine cutoff date for filtering history
+                let cutoffDate = null;
+                if (timeRange !== "all") {
+                    const days = parseInt(timeRange, 10);
+                    const d = new Date();
+                    d.setDate(d.getDate() - days);
+                    cutoffDate = d.toISOString().split("T")[0];
+                }
+                
+                // 1. Calculate KPI totals (Stars, Forks, Lifetime/Rolling Views, Clones)
+                let totalStars = 0;
+                let totalForks = 0;
+                let totalViews = 0;
+                let totalClones = 0;
+                
+                if (activeProject === "all") {
+                    state.projects.forEach(p => {
+                        totalStars += p.stars || 0;
+                        totalForks += p.forks || 0;
+                    });
+                } else {
+                    const p = state.projects.find(x => x.name === activeProject);
+                    if (p) {
+                        totalStars = p.stars || 0;
+                        totalForks = p.forks || 0;
+                    }
+                }
+                
+                // Gather daily records for plotting
+                let dailyData = {};
+                
+                const getHistoryRecords = (repoName) => {
+                    return state.history[repoName] || { views: {}, clones: {} };
+                };
+                
+                const reposToProcess = activeProject === "all" 
+                    ? state.projects.map(x => x.name) 
+                    : [activeProject];
+                    
+                reposToProcess.forEach(repo => {
+                    const repoHistory = getHistoryRecords(repo);
+                    
+                    // Aggregate views
+                    Object.entries(repoHistory.views || {}).forEach(([date, item]) => {
+                        if (cutoffDate && date < cutoffDate) return;
+                        if (!dailyData[date]) dailyData[date] = { views: 0, clones: 0 };
+                        dailyData[date].views += item.count || 0;
+                        totalViews += item.count || 0;
+                    });
+                    
+                    // Aggregate clones
+                    Object.entries(repoHistory.clones || {}).forEach(([date, item]) => {
+                        if (cutoffDate && date < cutoffDate) return;
+                        if (!dailyData[date]) dailyData[date] = { views: 0, clones: 0 };
+                        dailyData[date].clones += item.count || 0;
+                        totalClones += item.count || 0;
+                    });
+                });
+                
+                // Update KPIs in DOM
+                els.kpiViews.textContent = totalViews.toLocaleString();
+                els.kpiClones.textContent = totalClones.toLocaleString();
+                els.kpiForks.textContent = totalForks.toLocaleString();
+                els.kpiStars.textContent = totalStars.toLocaleString();
+                
+                // 2. Prepare chart datasets
+                const sortedDates = Object.keys(dailyData).sort();
+                const viewsSeries = [];
+                const clonesSeries = [];
+                const viewsCumulative = [];
+                const clonesCumulative = [];
+                
+                let cumulativeViewsSum = 0;
+                let cumulativeClonesSum = 0;
+                
+                sortedDates.forEach(date => {
+                    const item = dailyData[date];
+                    viewsSeries.push(item.views);
+                    clonesSeries.push(item.clones);
+                    
+                    cumulativeViewsSum += item.views;
+                    cumulativeClonesSum += item.clones;
+                    viewsCumulative.push(cumulativeViewsSum);
+                    clonesCumulative.push(cumulativeClonesSum);
+                });
+                
+                // 3. Render charts!
+                renderGrowthChart(sortedDates, viewsCumulative, clonesCumulative);
+                renderDailyChart(sortedDates, viewsSeries, clonesSeries);
+                renderShareChart();
+            }
+
+            function getChartOptions() {
+                return {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: "top",
+                            align: "end",
+                            labels: {
+                                color: "rgba(255, 255, 255, 0.7)",
+                                font: { family: "Inter", size: 11 },
+                                boxWidth: 12,
+                                boxHeight: 12,
+                                useBorderRadius: true,
+                                borderRadius: 3
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: "var(--surface-sunken)",
+                            titleColor: "var(--text-primary)",
+                            bodyColor: "var(--text-secondary)",
+                            borderColor: "var(--card-border)",
+                            borderWidth: 1,
+                            cornerRadius: 8,
+                            titleFont: { family: "Inter", size: 12, weight: "bold" },
+                            bodyFont: { family: "Inter", size: 12 },
+                            padding: 12
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: "rgba(255, 255, 255, 0.5)",
+                                font: { family: "JetBrains Mono", size: 10 }
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: "rgba(255, 255, 255, 0.04)"
+                            },
+                            ticks: {
+                                color: "rgba(255, 255, 255, 0.5)",
+                                font: { family: "JetBrains Mono", size: 10 },
+                                precision: 0
+                            }
+                        }
+                    }
+                };
+            }
+
+            function renderGrowthChart(labels, viewsData, clonesData) {
+                if (state.charts.growth) {
+                    state.charts.growth.destroy();
+                }
+                
+                const ctx = document.getElementById("chart-growth").getContext("2d");
+                
+                const gradientViews = ctx.createLinearGradient(0, 0, 0, 300);
+                gradientViews.addColorStop(0, "rgba(0, 242, 195, 0.15)");
+                gradientViews.addColorStop(1, "rgba(0, 242, 195, 0.0)");
+                
+                const gradientClones = ctx.createLinearGradient(0, 0, 0, 300);
+                gradientClones.addColorStop(0, "rgba(0, 180, 255, 0.15)");
+                gradientClones.addColorStop(1, "rgba(0, 180, 255, 0.0)");
+
+                state.charts.growth = new Chart(ctx, {
+                    type: "line",
+                    data: {
+                        labels: labels.map(d => formatDate(d)),
+                        datasets: [
+                            {
+                                label: "Cumulative Views",
+                                data: viewsData,
+                                borderColor: "#00f2c3",
+                                backgroundColor: gradientViews,
+                                fill: true,
+                                tension: 0.4,
+                                borderWidth: 2,
+                                pointBackgroundColor: "#00f2c3",
+                                pointHoverRadius: 6
+                            },
+                            {
+                                label: "Cumulative Clones",
+                                data: clonesData,
+                                borderColor: "#00b4ff",
+                                backgroundColor: gradientClones,
+                                fill: true,
+                                tension: 0.4,
+                                borderWidth: 2,
+                                pointBackgroundColor: "#00b4ff",
+                                pointHoverRadius: 6
+                            }
+                        ]
+                    },
+                    options: getChartOptions()
+                });
+            }
+
+            function renderDailyChart(labels, viewsData, clonesData) {
+                if (state.charts.daily) {
+                    state.charts.daily.destroy();
+                }
+                
+                const ctx = document.getElementById("chart-daily").getContext("2d");
+                
+                state.charts.daily = new Chart(ctx, {
+                    type: "bar",
+                    data: {
+                        labels: labels.map(d => formatDate(d)),
+                        datasets: [
+                            {
+                                label: "Daily Views",
+                                data: viewsData,
+                                backgroundColor: "rgba(0, 242, 195, 0.8)",
+                                borderColor: "#00f2c3",
+                                borderWidth: 1,
+                                borderRadius: 4
+                            },
+                            {
+                                label: "Daily Clones",
+                                data: clonesData,
+                                backgroundColor: "rgba(0, 180, 255, 0.8)",
+                                borderColor: "#00b4ff",
+                                borderWidth: 1,
+                                borderRadius: 4
+                            }
+                        ]
+                    },
+                    options: getChartOptions()
+                });
+            }
+
+            function renderShareChart() {
+                if (state.charts.share) {
+                    state.charts.share.destroy();
+                }
+                
+                const ctx = document.getElementById("chart-share").getContext("2d");
+                
+                const shares = state.projects.map(p => {
+                    let projectViews = 0;
+                    const repoHistory = state.history[p.name];
+                    if (repoHistory && repoHistory.views) {
+                        projectViews = Object.values(repoHistory.views).reduce((sum, x) => sum + (x.count || 0), 0);
+                    }
+                    return {
+                        title: p.title,
+                        views: projectViews
+                    };
+                }).filter(x => x.views > 0);
+                
+                if (!shares.length) {
+                    state.projects.forEach(p => {
+                        shares.push({ title: p.title, views: 1 });
+                    });
+                }
+
+                const colors = [
+                    "#00f2c3", "#00b4ff", "#bb86fc", "#ffc107", 
+                    "#ff5722", "#e91e63", "#00bcd4", "#3f51b5", 
+                    "#4caf50", "#ffeb3b"
+                ];
+                
+                state.charts.share = new Chart(ctx, {
+                    type: "doughnut",
+                    data: {
+                        labels: shares.map(x => x.title),
+                        datasets: [{
+                            data: shares.map(x => x.views),
+                            backgroundColor: shares.map((_, i) => colors[i % colors.length]),
+                            borderWidth: 1,
+                            borderColor: "var(--obsidian)"
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: "right",
+                                labels: {
+                                    color: "rgba(255, 255, 255, 0.7)",
+                                    font: { family: "Inter", size: 11 },
+                                    padding: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: "var(--surface-sunken)",
+                                titleColor: "var(--text-primary)",
+                                bodyColor: "var(--text-secondary)",
+                                borderColor: "var(--card-border)",
+                                borderWidth: 1,
+                                titleFont: { family: "Inter", size: 12, weight: "bold" },
+                                bodyFont: { family: "Inter", size: 12 }
+                            }
+                        },
+                        cutout: "70%"
+                    }
+                });
+            }
 
             // ── Filtering ──
             function getFiltered() {
@@ -270,7 +742,7 @@
                 });
             }
 
-            // ── Render ──
+            // ── Render Showroom ──
             function render() {
                 const items = getFiltered();
                 els.count.textContent = `Showing ${items.length} result${items.length === 1 ? "" : "s"}`;
@@ -302,7 +774,12 @@
                                 <h3>${esc(p.title)}</h3>
                                 <span class="body-badge badge">${esc(p.language)}</span>
                             </div>
-                            ${p.stars ? `<span class="star-count"><i class="fas fa-star"></i> ${p.stars}</span>` : ""}
+                            <div class="card-stats" style="display: flex; align-items: center; gap: 12px;">
+                                ${p.stars ? `<span class="star-count" title="GitHub Stars"><i class="fas fa-star"></i> ${p.stars}</span>` : ""}
+                                ${p.forks ? `<span class="fork-count" title="Forks"><i class="fas fa-code-branch"></i> ${p.forks}</span>` : ""}
+                                ${p.lifetime_views ? `<span class="view-count" title="Lifetime views (archived)"><i class="fas fa-eye"></i> ${p.lifetime_views}</span>` : ""}
+                                ${p.lifetime_clones ? `<span class="clone-count" title="Lifetime clones (archived)"><i class="fas fa-download"></i> ${p.lifetime_clones}</span>` : ""}
+                            </div>
                         </div>
                         <p class="card-desc">${esc(p.description)}</p>
                         <p class="card-by">By @${esc(state.username)}</p>

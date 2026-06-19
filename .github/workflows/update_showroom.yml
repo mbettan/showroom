@@ -1,0 +1,56 @@
+name: Update Showroom Portfolio
+
+on:
+  schedule:
+    # Run every day at midnight UTC (keeps your stats fresh daily!)
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    # Allows you to click a button in the GitHub UI to trigger it manually at any time!
+
+permissions:
+  contents: write # Allows the action to commit and push changes back to your repository
+
+jobs:
+  update-portfolio:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          # Fetch full history so we can commit changes back
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Run Fetch Script
+        run: |
+          python scripts/fetch_repos.py --username mbettan
+        env:
+          # Use your Personal Access Token stored in Repository Secrets
+          GITHUB_TOKEN: ${{ secrets.PORTFOLIO_GITHUB_TOKEN }}
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          # Stage the updated project database and the traffic ledger
+          git add docs/projects.json docs/traffic_history.json
+          
+          # Only commit and push if there are actual changes (new views or clones)
+          if ! git diff --cached --quiet; then
+            git commit -m "Auto-update portfolio stats & traffic ledger [skip ci]"
+            git push
+            echo "✅ Successfully updated and pushed new traffic metrics!"
+          else
+            echo "z No new traffic data to update today."
+          fi

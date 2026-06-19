@@ -2236,6 +2236,22 @@ footer a:hover {
     color: var(--amber); white-space: nowrap;
 }
 
+.view-count {
+    font-family: var(--font-mono); font-size: 0.72rem;
+    color: var(--mint); white-space: nowrap;
+}
+
+.fork-count {
+    font-family: var(--font-mono); font-size: 0.72rem;
+    color: var(--purple); white-space: nowrap;
+}
+
+.clone-count {
+    font-family: var(--font-mono); font-size: 0.72rem;
+    color: var(--blue); white-space: nowrap;
+}
+
+
 .card-desc {
     font-size: 0.85rem; color: var(--text-secondary);
     line-height: 1.6; margin-bottom: 8px; flex: 1;
@@ -2311,5 +2327,182 @@ footer a:hover {
     .search-box { max-width: none; width: 100%; }
     .showcase { padding: 28px 18px 50px; }
 }
+
+/* ── ANALYTICS DASHBOARD ── */
+
+/* KPI Scorecards Grid */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.kpi-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    border-radius: 16px;
+    border: 1px solid var(--card-border);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.kpi-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+.kpi-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.kpi-label {
+    font-size: 0.72rem;
+    color: var(--text-tertiary);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.kpi-info h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.1;
+    font-family: var(--font-sans);
+}
+
+/* Color Utilities for KPIs */
+.color-mint {
+    background: rgba(0, 242, 195, 0.08);
+    color: var(--mint);
+    border: 1px solid rgba(0, 242, 195, 0.2);
+}
+
+.color-blue {
+    background: rgba(0, 180, 255, 0.08);
+    color: var(--blue);
+    border: 1px solid rgba(0, 180, 255, 0.2);
+}
+
+.color-purple {
+    background: rgba(187, 134, 252, 0.08);
+    color: var(--purple);
+    border: 1px solid rgba(187, 134, 252, 0.2);
+}
+
+.color-gold {
+    background: rgba(255, 193, 7, 0.08);
+    color: var(--amber);
+    border: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+/* Analytics Filter Controls */
+.analytics-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 16px 24px;
+    border-radius: 14px;
+    background: var(--surface-sunken);
+    border: 1px solid var(--card-border);
+    margin-bottom: 30px;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.control-group label {
+    font-size: 0.74rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.control-group select {
+    padding: 10px 14px;
+    font-size: 0.88rem;
+    font-family: var(--font-sans);
+    color: var(--text-primary);
+    background: var(--obsidian);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding-right: 36px;
+}
+
+.control-group select:focus {
+    border-color: var(--mint);
+    box-shadow: 0 0 0 2px rgba(0, 242, 195, 0.15);
+}
+
+/* Charts Grid */
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 24px;
+}
+
+.chart-card {
+    border-radius: 16px;
+    border: 1px solid var(--card-border);
+    padding: 24px;
+}
+
+.chart-card h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    font-family: var(--font-sans);
+    letter-spacing: 0.02em;
+}
+
+.chart-card.full-width {
+    grid-column: 1 / -1;
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+
+/* Responsive Overrides for Analytics */
+@media (max-width: 880px) {
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+    .chart-card.full-width {
+        grid-column: auto;
+    }
+}
+
 
 
