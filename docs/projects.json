@@ -1,8 +1,32 @@
 {
-  "generated_at": "2026-06-19T02:23:48.527277Z",
+  "generated_at": "2026-06-19T02:51:12.463322Z",
   "username": "mbettan",
   "count": 15,
   "projects": [
+    {
+      "id": 1051821440,
+      "name": "wealth-dashboard",
+      "title": "Wealth Dashboard",
+      "description": "A sophisticated financial tracking dashboard built with Google Sheets and Apps Script to visualize net worth, asset allocation, and progress toward financial independence (FIRE).",
+      "github_url": "https://github.com/mbettan/wealth-dashboard",
+      "homepage_url": "https://mbettan.github.io/wealth-dashboard/",
+      "topics": [
+        "apps-script",
+        "asset-allocation",
+        "dashboard",
+        "financial-independence",
+        "fire-movement",
+        "google-sheets",
+        "net-worth",
+        "personal-finance",
+        "wealth-management"
+      ],
+      "language": "Other",
+      "stars": 0,
+      "created_at": "2025-09-06T19:40:02Z",
+      "updated_at": "2026-06-19T02:47:51Z",
+      "thumbnail": "images/wealth-dashboard.png"
+    },
     {
       "id": 1187528703,
       "name": "machine-learning-cert",
@@ -31,34 +55,6 @@
       "created_at": "2026-03-20T20:42:40Z",
       "updated_at": "2026-06-19T02:21:36Z",
       "thumbnail": "images/machine-learning-cert.png"
-    },
-    {
-      "id": 914636011,
-      "name": "data-analytics-cert",
-      "title": "Data Analytics Cert",
-      "description": "🎓 Elite multi-modal study hub for GCP Professional Data Engineer & Databricks certifications. Interactive guides, high-res infographics, and AI-generated podcasts (NotebookLM).",
-      "github_url": "https://github.com/mbettan/data-analytics-cert",
-      "homepage_url": "https://mbettan.github.io/data-analytics-cert/",
-      "topics": [
-        "certification-prep",
-        "data-analytics",
-        "data-engineering",
-        "databricks",
-        "gcp",
-        "google-cloud",
-        "infographics",
-        "interactive-learning",
-        "notebooklm",
-        "pde",
-        "podcasts",
-        "professional-data-engineer",
-        "study-guide"
-      ],
-      "language": "Other",
-      "stars": 0,
-      "created_at": "2025-01-10T01:52:43Z",
-      "updated_at": "2026-06-19T02:20:35Z",
-      "thumbnail": "images/data-analytics-cert.png"
     },
     {
       "id": 1272935192,

@@ -34,7 +34,7 @@ PLACEHOLDER_THUMB = "images/placeholder.png"
 IMAGES_DIR = "docs/images"
 
 # Repos you may want to hide (forks, archived, the portfolio repo itself, etc.)
-SKIP_NAMES = {"showroom", "showcase", "wealth-dashboard"}
+SKIP_NAMES = {"showroom", "showcase"}
 SKIP_FORKS = True
 SKIP_ARCHIVED = False
 
@@ -180,9 +180,9 @@ def main():
         if SKIP_ARCHIVED and repo.get("archived"):
             continue
         
-        # Filter: Only projects starting January 10, 2025 or after (includes data-analytics-cert)
+        # Filter: Only projects starting September 6, 2025 or after (includes wealth-dashboard)
         created_at = repo.get("created_at")
-        if created_at and created_at < "2025-01-10T01:52:43Z":
+        if created_at and created_at < "2025-09-06T19:40:02Z":
             continue
             
         projects.append(transform(repo, args.username, headers))
