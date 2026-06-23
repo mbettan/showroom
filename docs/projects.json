@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T02:56:03.546657Z",
+  "generated_at": "2026-06-23T02:31:13.923737Z",
   "username": "mbettan",
   "count": 15,
   "projects": [
@@ -25,9 +25,9 @@
       "stars": 0,
       "forks": 1,
       "views": 124,
-      "clones": 1580,
+      "clones": 1579,
       "lifetime_views": 202,
-      "lifetime_clones": 1737,
+      "lifetime_clones": 1738,
       "created_at": "2026-04-02T21:00:20Z",
       "updated_at": "2026-06-06T12:28:32Z",
       "thumbnail": "images/bq-finops-optimizer.png"
@@ -44,9 +44,9 @@
       "stars": 0,
       "forks": 0,
       "views": 49,
-      "clones": 62,
+      "clones": 63,
       "lifetime_views": 49,
-      "lifetime_clones": 62,
+      "lifetime_clones": 63,
       "created_at": "2026-06-13T16:38:35Z",
       "updated_at": "2026-06-15T20:18:29Z",
       "thumbnail": "images/RouteMind.png"
@@ -111,9 +111,9 @@
       "stars": 0,
       "forks": 0,
       "views": 6,
-      "clones": 38,
+      "clones": 39,
       "lifetime_views": 9,
-      "lifetime_clones": 42,
+      "lifetime_clones": 44,
       "created_at": "2026-06-02T21:35:53Z",
       "updated_at": "2026-06-02T21:49:05Z",
       "thumbnail": "images/ask-a-friend.png"
@@ -145,9 +145,9 @@
       "stars": 0,
       "forks": 0,
       "views": 5,
-      "clones": 12,
+      "clones": 19,
       "lifetime_views": 5,
-      "lifetime_clones": 12,
+      "lifetime_clones": 20,
       "created_at": "2026-03-20T20:42:40Z",
       "updated_at": "2026-06-19T02:21:36Z",
       "thumbnail": "images/machine-learning-cert.png"
@@ -158,7 +158,7 @@
       "title": "PocketRAG",
       "description": "PocketRAG is a zero-infrastructure, portable agent plugin (Skill + FastMCP Server) that turns NotebookLM Enterprise (via Vertex AI Discovery Engine) into an instant, managed RAG backend for any LLM client (Claude Desktop, Cursor, Gemini, Cline). Bring your own documents to your AI assistant in under 60 seconds.",
       "github_url": "https://github.com/mbettan/PocketRAG",
-      "homepage_url": "https://mbettan.github.io/PocketRAG",
+      "homepage_url": "https://mbettan.github.io/PocketRAG/",
       "topics": [
         "ai-agents",
         "claude-desktop",
@@ -181,7 +181,7 @@
       "lifetime_views": 4,
       "lifetime_clones": 19,
       "created_at": "2026-06-18T04:13:53Z",
-      "updated_at": "2026-06-18T04:27:34Z",
+      "updated_at": "2026-06-22T20:31:34Z",
       "thumbnail": "images/PocketRAG.png"
     },
     {
@@ -202,7 +202,7 @@
       "views": 1,
       "clones": 8,
       "lifetime_views": 3,
-      "lifetime_clones": 11,
+      "lifetime_clones": 12,
       "created_at": "2026-05-30T22:33:28Z",
       "updated_at": "2026-05-31T03:17:28Z",
       "thumbnail": "images/ListingVault.png"
@@ -245,10 +245,10 @@
       "language": "Python",
       "stars": 0,
       "forks": 0,
-      "views": 1,
-      "clones": 16,
+      "views": 0,
+      "clones": 17,
       "lifetime_views": 1,
-      "lifetime_clones": 20,
+      "lifetime_clones": 21,
       "created_at": "2026-05-29T01:12:10Z",
       "updated_at": "2026-05-29T01:17:46Z",
       "thumbnail": "images/audioscribe.png"
@@ -269,9 +269,9 @@
       "stars": 0,
       "forks": 0,
       "views": 1,
-      "clones": 19,
+      "clones": 20,
       "lifetime_views": 1,
-      "lifetime_clones": 22,
+      "lifetime_clones": 23,
       "created_at": "2026-05-23T19:14:30Z",
       "updated_at": "2026-05-23T19:30:39Z",
       "thumbnail": "images/eml2pdf.png"
@@ -293,9 +293,9 @@
       "stars": 0,
       "forks": 0,
       "views": 0,
-      "clones": 3,
+      "clones": 4,
       "lifetime_views": 0,
-      "lifetime_clones": 7,
+      "lifetime_clones": 8,
       "created_at": "2026-05-30T01:21:11Z",
       "updated_at": "2026-05-30T01:50:40Z",
       "thumbnail": "images/WhisperOnGCP.png"
@@ -314,9 +314,9 @@
       "stars": 0,
       "forks": 0,
       "views": 0,
-      "clones": 7,
+      "clones": 8,
       "lifetime_views": 0,
-      "lifetime_clones": 10,
+      "lifetime_clones": 11,
       "created_at": "2026-05-23T03:33:30Z",
       "updated_at": "2026-05-23T18:27:55Z",
       "thumbnail": "images/omnidoc.png"
@@ -352,9 +352,9 @@
       "stars": 0,
       "forks": 0,
       "views": 0,
-      "clones": 6,
+      "clones": 7,
       "lifetime_views": 0,
-      "lifetime_clones": 8,
+      "lifetime_clones": 9,
       "created_at": "2026-03-18T00:05:15Z",
       "updated_at": "2026-03-30T18:56:49Z",
       "thumbnail": "images/PixelMind.png"
