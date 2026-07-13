@@ -290,9 +290,9 @@ def main():
         if SKIP_ARCHIVED and repo.get("archived"):
             continue
         
-        # Filter: Only projects starting September 6, 2025 or after (includes wealth-dashboard)
+        # Filter: Only projects starting January 1, 2025 or after (includes data-analytics-cert)
         created_at = repo.get("created_at")
-        if created_at and created_at < "2025-09-06T19:40:02Z":
+        if created_at and created_at < "2025-01-01T00:00:00Z":
             continue
             
         projects.append(transform(repo, args.username, headers, history))
