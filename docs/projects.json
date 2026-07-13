@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T01:56:13.126576Z",
+  "generated_at": "2026-07-13T01:58:18.309244Z",
   "username": "mbettan",
   "count": 15,
   "projects": [
@@ -24,9 +24,9 @@
       "language": "Python",
       "stars": 1,
       "forks": 1,
-      "views": 113,
-      "clones": 39,
-      "lifetime_views": 388,
+      "views": 112,
+      "clones": 29,
+      "lifetime_views": 389,
       "lifetime_clones": 1886,
       "created_at": "2026-04-02T21:00:20Z",
       "updated_at": "2026-07-02T16:05:40Z",
@@ -208,6 +208,29 @@
       "thumbnail": "images/ListingVault.png"
     },
     {
+      "id": 1179996624,
+      "name": "PersonaAdGen",
+      "title": "PersonaAdGen",
+      "description": "AI-powered advertising content generator that transforms user photos into compelling, persona-driven advertising scenes. The agent guides users through a story-driven brief collection process, automatically generates headlines, and creates multiple advertising scenes tailored to specific target audiences.",
+      "github_url": "https://github.com/mbettan/PersonaAdGen",
+      "homepage_url": "https://mbettan.github.io/PersonaAdGen/",
+      "topics": [
+        "imagegen4",
+        "nanobananapro",
+        "veo3"
+      ],
+      "language": "Python",
+      "stars": 2,
+      "forks": 0,
+      "views": 1,
+      "clones": 4,
+      "lifetime_views": 2,
+      "lifetime_clones": 16,
+      "created_at": "2026-03-12T15:39:24Z",
+      "updated_at": "2026-05-04T12:03:40Z",
+      "thumbnail": "images/PersonaAdGen.png"
+    },
+    {
       "id": 1252888166,
       "name": "audioscribe",
       "title": "Audioscribe",
@@ -231,29 +254,6 @@
       "thumbnail": "images/audioscribe.png"
     },
     {
-      "id": 1179996624,
-      "name": "PersonaAdGen",
-      "title": "PersonaAdGen",
-      "description": "AI-powered advertising content generator that transforms user photos into compelling, persona-driven advertising scenes. The agent guides users through a story-driven brief collection process, automatically generates headlines, and creates multiple advertising scenes tailored to specific target audiences.",
-      "github_url": "https://github.com/mbettan/PersonaAdGen",
-      "homepage_url": "https://mbettan.github.io/PersonaAdGen/",
-      "topics": [
-        "imagegen4",
-        "nanobananapro",
-        "veo3"
-      ],
-      "language": "Python",
-      "stars": 2,
-      "forks": 0,
-      "views": 0,
-      "clones": 4,
-      "lifetime_views": 1,
-      "lifetime_clones": 16,
-      "created_at": "2026-03-12T15:39:24Z",
-      "updated_at": "2026-05-04T12:03:40Z",
-      "thumbnail": "images/PersonaAdGen.png"
-    },
-    {
       "id": 1247780329,
       "name": "eml2pdf",
       "title": "Eml2pdf",
@@ -269,9 +269,9 @@
       "stars": 0,
       "forks": 0,
       "views": 0,
-      "clones": 2,
+      "clones": 3,
       "lifetime_views": 1,
-      "lifetime_clones": 26,
+      "lifetime_clones": 27,
       "created_at": "2026-05-23T19:14:30Z",
       "updated_at": "2026-05-23T19:30:39Z",
       "thumbnail": "images/eml2pdf.png"
@@ -290,9 +290,9 @@
       "stars": 0,
       "forks": 0,
       "views": 0,
-      "clones": 3,
+      "clones": 4,
       "lifetime_views": 1,
-      "lifetime_clones": 16,
+      "lifetime_clones": 17,
       "created_at": "2026-05-23T03:33:30Z",
       "updated_at": "2026-05-23T18:27:55Z",
       "thumbnail": "images/omnidoc.png"
