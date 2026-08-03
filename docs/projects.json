@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-02T01:58:13.402494Z",
+  "generated_at": "2026-08-03T02:00:40.835154Z",
   "username": "mbettan",
   "count": 17,
   "projects": [
@@ -24,10 +24,10 @@
       "language": "Python",
       "stars": 6,
       "forks": 1,
-      "views": 233,
-      "clones": 125,
+      "views": 227,
+      "clones": 106,
       "lifetime_views": 700,
-      "lifetime_clones": 2112,
+      "lifetime_clones": 2113,
       "created_at": "2026-04-02T21:00:20Z",
       "updated_at": "2026-07-30T03:52:15Z",
       "thumbnail": "images/bq-finops-optimizer.png"
@@ -44,7 +44,7 @@
       "stars": 0,
       "forks": 0,
       "views": 14,
-      "clones": 3,
+      "clones": 2,
       "lifetime_views": 66,
       "lifetime_clones": 53,
       "created_at": "2026-06-02T21:35:53Z",
