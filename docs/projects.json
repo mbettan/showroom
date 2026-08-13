@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-12T01:11:54.972779Z",
+  "generated_at": "2026-08-13T01:13:47.034995Z",
   "username": "mbettan",
   "count": 17,
   "projects": [
@@ -24,12 +24,12 @@
       "language": "Python",
       "stars": 6,
       "forks": 3,
-      "views": 265,
-      "clones": 153,
-      "lifetime_views": 881,
-      "lifetime_clones": 2218,
+      "views": 276,
+      "clones": 157,
+      "lifetime_views": 911,
+      "lifetime_clones": 2223,
       "created_at": "2026-04-02T21:00:20Z",
-      "updated_at": "2026-08-08T02:26:42Z",
+      "updated_at": "2026-08-12T18:42:41Z",
       "thumbnail": "images/bq-finops-optimizer.png"
     },
     {
@@ -44,9 +44,9 @@
       "stars": 0,
       "forks": 0,
       "views": 0,
-      "clones": 2,
+      "clones": 3,
       "lifetime_views": 66,
-      "lifetime_clones": 54,
+      "lifetime_clones": 55,
       "created_at": "2026-06-02T21:35:53Z",
       "updated_at": "2026-06-02T21:49:05Z",
       "thumbnail": "images/ask-a-friend.png"
@@ -143,9 +143,9 @@
       "language": "CSS",
       "stars": 0,
       "forks": 0,
-      "views": 7,
+      "views": 10,
       "clones": 26,
-      "lifetime_views": 19,
+      "lifetime_views": 22,
       "lifetime_clones": 66,
       "created_at": "2026-07-18T01:54:41Z",
       "updated_at": "2026-07-30T03:04:12Z",
