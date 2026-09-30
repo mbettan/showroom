@@ -34,7 +34,7 @@ PLACEHOLDER_THUMB = "images/placeholder.png"
 IMAGES_DIR = "docs/images"
 
 # Repos you may want to hide (forks, archived, the portfolio repo itself, etc.)
-SKIP_NAMES = {"showroom", "showcase"}
+SKIP_NAMES = {"showroom", "showcase", "mbettan.github.io"}
 SKIP_FORKS = True
 SKIP_ARCHIVED = False
 
